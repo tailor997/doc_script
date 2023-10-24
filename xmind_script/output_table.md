@@ -4,16 +4,11 @@
 	- Size
 		- Value
 			- Description
-## --------
-- -------------------
-	- ------
-		- --------
-			- -------------
 ## 0
 - bLength
 	- 1
 		- 0x09
-			- 
+			- _
 ## 1
 - bDescriptorType
 	- 1
@@ -28,12 +23,12 @@
 - bCountryCode
 	- 1
 		- 0x00
-			- 
+			- _
 ## 5
 - bNumDescriptors
 	- 1
 		- 0x01
-			- 
+			- _
 ## 6
 - bDescriptorType
 	- 1
@@ -43,4 +38,4 @@
 - wDescriptorLength
 	- 2
 		- 0x0041
-			- 
+			- _

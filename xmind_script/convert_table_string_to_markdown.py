@@ -10,28 +10,33 @@ def convert_table_string_to_markdown(table_string):
         # Skip empty rows
         if not row:
             continue
+
         col = 0
         # Split the row into cells
         cells = [cell.strip() for cell in row.split('|')]
 
-        # Determine the depth based on the number of cells
-        depth = row.count('|') - 1
+        if not cells[1][:3] == '---':
 
-        # Create Markdown headers or cell content based on depth
-        for col in range(depth):
-            # if col == 0 and row == 0:
-            #     # Header row
-            #     markdown.append(f"# {cells[col]}\n")
-            if col == 0 :
-                # Header row
-                markdown.append(f"## {cells[col+1]}\n")
-            else:
-                # Cell row
-                indentation = "\t" * (col-1)
-                markdown.append(f"{indentation}- {cells[col+1]}\n")
+            # Determine the depth based on the number of cells
+            depth = row.count('|') - 1
 
+            # Create Markdown headers or cell content based on depth
+            for col in range(depth):
+                # if col == 0 and row == 0:
+                #     # Header row
+                #     markdown.append(f"# {cells[col]}\n")
+                if col == 0:
+                    # Header row
+                    markdown.append(f"## {cells[col + 1]}\n")
+                else:
+                    # Cell row
+                    indentation = "\t" * (col - 1)
+                    if len(cells[col + 1]) == 0:
+                        cells[col + 1] = "_"
+                    markdown.append(f"{indentation}- {cells[col + 1]}\n")
 
     return "".join(markdown)
+
 
 # Input file path and output file path
 # input_file_path = input("请输入包含表格的Markdown文件的完整路径: ")
